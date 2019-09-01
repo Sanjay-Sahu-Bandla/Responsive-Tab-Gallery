@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Responsive Gallery</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="gallery.css">
+
+  <style type="text/css">
+
+    * {
+      box-sizing: border-box;
+      font-family: sans-serif;
+    }
+    
+    img {
+      width: 100%;
+      border-radius: 8px;
+      margin-top: 10px;
+      padding: 0;
+    }
+
+    #container {
+      position: relative;
+      display: none;
+    }
+
+    #container img {
+      /*width: 100%;*/
+      /*height: 60%;*/
+    }
+
+    button.btn.btn-primary {
+      display: none;
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+      outline: none;
+      letter-spacing: 1px;
+      font-weight: bold;
+    }
+
+    button.btn.btn-default {
+      position: absolute;
+      right: 20px;
+      top: 20px;
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="container-fluid">
+
+    <div class="row no-row-gutters">
+
+
+        <div class="col-lg-6">
+          
+          <div class="row no-row-gutters collapsible" id="sh">
+            
+            <div class="col-lg-3 col-md-6 col-xs-6">
+
+              <img src="dp1.png"  onclick="doSo(this)">
+              <img src="dp2.png"  onclick="doSo(this)">
+              <img src="dp3.png"  onclick="doSo(this)">
+              <img src="dp4.jpg"  onclick="doSo(this)">
+
+            </div>
+            
+            <div class="col-lg-3 col-md-6 col-xs-6">
+
+              <img src="dp5.jpg"  onclick="doSo(this)">
+              <img src="dp6.png"  onclick="doSo(this)">
+              <img src="dp7.jpg"  onclick="doSo(this)">
+              <img src="dp8.png"  onclick="doSo(this)">
+
+            </div>
+
+
+            <div class="clearfix visible-xs visible-md"></div>
+            
+            <div class="col-lg-3 col-md-6 col-xs-6">
+
+              <img src="dp8.png"  onclick="doSo(this)">
+              <img src="dp9.png"  onclick="doSo(this)">
+              <img src="dp10.png"  onclick="doSo(this)">
+              <img src="dp11.png"  onclick="doSo(this)">
+
+            </div>
+            
+            <div class="col-lg-3 col-md-6 col-xs-6">
+
+              <img src="dp12.jpg"  onclick="doSo(this)">
+              <img src="dp13.png"  onclick="doSo(this)">
+              <img src="dp14.png"  onclick="doSo(this)">
+              <img src="dp15.png"  onclick="doSo(this)">
+
+            </div>
+
+          </div>
+
+        </div>
+
+          <button class="btn btn-primary btn-block" data-toggle="collapse" data-target="#sh"> GALLERY </button>
+
+        <div class="col-lg-6 container" id="container">
+    
+          <button class="btn btn-default"
+          onclick="this.parentElement.style.display='none'">&times;</button>
+
+          <img src="" class="c img-rounded" id="expandedImg" style="width: 100%" class="img-thumbnail">
+
+          <span id="imgTxt"></span>
+
+        </div>
+
+
+    </div> <!-- row -->
+
+  </div>  <!-- container -->
+
+  <script type="text/javascript">
+    
+    function doSo(imgs) {
+
+      var expandImg = document.getElementById('expandedImg');
+      var caption = document.getElementById('imgTxt');
+
+      expandImg.src = imgs.src; 
+      expandImg.parentElement.style.display = "block";
+    }
+
+
+
+    var expandCollapse = function(){
+        if ( $(window).width() < 768 ) {
+            $(function(){
+                $('.collapsible').addClass('collapse');
+                $('button.btn.btn-primary').css('display', 'block');
+            });
+        }
+        else {
+            $(function(){
+                $('.collapsible').removeClass('collapse');
+                $('button.btn.btn-primary').css('display', 'none');
+            });
+        }
+    }
+    $(window).resize(expandCollapse); 
+
+   
+  </script>
+
+</body>
+</html>
